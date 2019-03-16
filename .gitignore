@@ -25,7 +25,7 @@ xcuserdata
 *.moved-aside
 
 # keep premake
-#!premake*.*
+!premake*.*
 
 build/obj/
 vs2017/
