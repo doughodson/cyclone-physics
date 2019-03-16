@@ -63,10 +63,10 @@ project "cyclone"
 
 project "ballistic"
    kind "ConsoleApp"
-   targetdir "../../bin"
+   targetdir ("../../bin/")
    files {
-      "../../src/demo/*.*",
-      "../../src/demo/ballistic/*.cpp",
+      "../../src/demos/*.*",
+      "../../src/demos/ballistic/*.*",
    }
    links { "cyclone" }
    targetname "ballistic"
