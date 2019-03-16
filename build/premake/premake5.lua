@@ -61,7 +61,7 @@ project "cyclone"
    }
    targetname "cyclone"
 
-project "ballistic"
+project "demo-ballistic"
    kind "ConsoleApp"
    targetdir ("../../bin/")
    files {
