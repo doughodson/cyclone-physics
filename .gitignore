@@ -24,8 +24,6 @@ bin/osx64/*
 xcuserdata
 *.moved-aside
 
-# keep premake
-!premake*.*
 
 build/obj/
 vs2017/

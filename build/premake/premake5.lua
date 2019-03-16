@@ -68,4 +68,5 @@ project "ballistic"
       "../../src/demo/*.*",
       "../../src/demo/ballistic/*.cpp",
    }
+   links { "cyclone" }
    targetname "ballistic"
