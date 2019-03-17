@@ -36,7 +36,7 @@ project "lib-freeglut3"
    debugdir    "../../deps/lib"  -- destination dir for debug info
    symbolspath "$(OutDir)$(TargetName).pdb"
    kind        "StaticLib"       -- creating static library
-   defines { "FREEGLUT_STATIC", "NEED_XPARSEGEOMETRY_IMPL" }
+   defines { "FREEGLUT_STATIC", "NEED_XPARSEGEOMETRY_IMPL", "FREEGLUT_LIB_PRAGMAS=0" }
    includedirs {
       FreeGlut3Path.."include",
       FreeGlut3Path.."src",
