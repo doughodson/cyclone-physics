@@ -5,7 +5,10 @@ project "demo-ballistic"
    debugdir    "../../bin"       -- destination dir for debug info
    symbolspath "$(OutDir)$(TargetName).pdb"
    kind        "ConsoleApp"      -- creating a console app
-   includedirs { CYCLONE_IncPath }
+   includedirs {
+      CYCLONE_IncPath,
+      "../../deps/src/freeglut-2.8.1/include",
+   }
    libdirs     { "../../lib", "../../deps/lib" }
    defines     { "FREEGLUT_STATIC", "FREEGLUT_LIB_PRAGMAS=0" }
    files {
