@@ -20,20 +20,12 @@ workspace "cyclone-physics"
    -- C++ code in all projects
    language "C++"
 
-   -- common include directories (all configurations/all projects)
-   includedirs { CYCLONE_IncPath }
-
    --
    -- Build (solution) configuration options:
    --     Release        (Runtime library is Multi-threaded DLL)
    --     Debug          (Runtime library is Multi-threaded Debug DLL)
    --
    configurations { "Release", "Debug" }
-
-   if (_ACTION == "gmake") then
-      buildoptions { "-std=c++17" }
-      links { "stdc++fs", "pthread" }
-   end
 
    -- common release configuration flags and symbols
    filter { "configurations:Release" }
@@ -47,26 +39,12 @@ workspace "cyclone-physics"
    -- common debug configuration flags and symbols
    filter { "configurations:Debug" }
       symbols "On"
+      --targetsuffix "_d"
       if (_ACTION ~= "gmake") then
          defines { "WIN32", "_DEBUG" }
       end
 
--- cyclone library
-project "cyclone"
-   kind "StaticLib"
-   targetdir ("../../lib/")
-   files {
-      "../../include/**.*",
-      "../../src/*.cpp",
-   }
-   targetname "cyclone"
+   dofile "deps.lua"
+   dofile "cyclone.lua"
+   dofile "demos.lua"
 
-project "demo-ballistic"
-   kind "ConsoleApp"
-   targetdir ("../../bin/")
-   files {
-      "../../src/demos/*.*",
-      "../../src/demos/ballistic/*.*",
-   }
-   links { "cyclone" }
-   targetname "ballistic"
